@@ -24,7 +24,7 @@ const Login = () => {
     const auth = getAuth(app);
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/"); // Navigate to admin page after successful login
+      router.push("/");
     } catch (err) {
       console.error("Login error:", err);
       setError("Invalid email or password. Please try again.");
