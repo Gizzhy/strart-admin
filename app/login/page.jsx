@@ -38,7 +38,7 @@ const Login = () => {
       <div className={styles.loginbody}>
         <div className={styles.loginArea}>
           <div className={styles.loginHead}>
-            <Image src={logo} alt="dejyle" className={styles.logo} />
+            <Image src={logo} alt="strart" className={styles.logo} />
             <p className={styles.create}>Login</p>
           </div>
           <div className={styles.formBody}>

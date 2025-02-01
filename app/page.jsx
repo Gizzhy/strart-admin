@@ -9,7 +9,7 @@ import View from "./sidebarcomp/View/View";
 import styles from "./home.module.scss";
 
 function Home() {
-  const [selectedPage, setSelectedPage] = useState("Upload");
+  const [selectedPage, setSelectedPage] = useState("View");
   const renderPage = () => {
     switch (selectedPage) {
       // case "Overview":

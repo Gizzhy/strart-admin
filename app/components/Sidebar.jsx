@@ -13,7 +13,7 @@ const Sidebar = ({ setSelectedPage, selectedPage }) => {
     <>
       <aside className={styles.sidebar}>
         <div className={styles.sidebarHead}>
-          <Image src={logo} alt="dejyle" className={styles.logo} />
+          <Image src={logo} alt="strart" className={styles.logo} />
           {/* <span className={styles.dej}>Dejyle Venture</span> */}
         </div>
         <hr className={styles.line} />
