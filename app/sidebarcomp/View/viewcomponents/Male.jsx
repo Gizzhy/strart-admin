@@ -11,6 +11,7 @@ import {
   getDocs,
   updateDoc,
   doc,
+  deleteDoc,
 } from "firebase/firestore";
 import app from "@/firebaseConfig";
 
@@ -27,12 +28,26 @@ const Male = () => {
     price: "",
   });
 
+  const db = getFirestore(app);
   // Handle toggle for a specific product
-  const handleToggle = (id) => {
-    setToggleStates((prev) => ({
-      ...prev,
-      [id]: !prev[id], // Toggle the state for the specific product ID
-    }));
+  const handleToggle = async (id, currentStatus) => {
+    try {
+      const productRef = doc(db, "products", id);
+      await updateDoc(productRef, {
+        isAvailable: !currentStatus, // Toggle the value
+      });
+
+      // Update state to reflect change immediately
+      setProducts((prevProducts) =>
+        prevProducts.map((product) =>
+          product.id === id
+            ? { ...product, isAvailable: !currentStatus }
+            : product
+        )
+      );
+    } catch (error) {
+      console.error("Error updating availability:", error);
+    }
   };
 
   const handleOptionsClick = (id) => {
@@ -73,6 +88,29 @@ const Male = () => {
       setIsEditModalOpen(false); // Close modal after saving
     } catch (error) {
       console.error("Error updating product:", error);
+    }
+  };
+  // Handle product deletion
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this product?"
+    );
+
+    if (!confirmDelete) return;
+
+    try {
+      const db = getFirestore(app);
+      await deleteDoc(doc(db, "products", id)); // Delete from Firestore
+
+      // Remove deleted product from UI
+      setProducts((prevProducts) =>
+        prevProducts.filter((product) => product.id !== id)
+      );
+
+      alert("Product deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting product:", error);
+      alert("Failed to delete product.");
     }
   };
 
@@ -156,20 +194,20 @@ const Male = () => {
                 </div>
                 <div
                   className={styles.opTab}
-                  onClick={() => console.log("Delete Clicked")}
+                  onClick={() => handleDelete(product.id)}
                 >
                   Delete
                 </div>
                 <div
                   className={styles.opTabCheck}
-                  onClick={() => handleToggle(product.id)}
+                  onClick={() => handleToggle(product.id, product.isAvailable)}
                   style={{
                     fontSize: "24px",
-                    color: toggleStates[product.id] ? "green" : "red",
+                    color: product.isAvailable ? "green" : "red",
                     cursor: "pointer",
                   }}
                 >
-                  {toggleStates[product.id] ? <FaToggleOn /> : <FaToggleOff />}
+                  {product.isAvailable ? <FaToggleOn /> : <FaToggleOff />}
                 </div>
               </div>
             )}

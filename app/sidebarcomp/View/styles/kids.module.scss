@@ -6,6 +6,10 @@ $brown : #4d3a2d;
         grid-template-columns: repeat(4, 1fr); // 4 cards per row
         gap: 20px; // Spacing between cards
     margin-top: 60px;
+    .noProductsText{
+        font-size: 20px;
+        width: 400px;
+      }
     div{
         height: 260px;
         width: 210px;
@@ -13,6 +17,8 @@ $brown : #4d3a2d;
         border-radius: 10px;
         position: relative;
         border: 1px solid $brown;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
         .options{
             position: absolute;
             z-index: 100;
@@ -35,7 +41,9 @@ $brown : #4d3a2d;
                     border-radius: 30%;
                 }
             }
-                &:nth-of-type(2) {
+              
+        }
+        .catBody{
             background-color: rgb(244, 242, 242);
              border-radius: 0 0 10px 10px;
             align-items: self-start;
@@ -50,10 +58,125 @@ $brown : #4d3a2d;
                         text-transform: uppercase;
                     }
                 }
-                
-            
-           
-        }
     }
+    .popup {
+        position: absolute;
+        z-index: 200;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        // padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+
+        height: 120px;
+        width: 120px;
+        top: 11%;
+        left: 85%;
+        .opTab{
+            width: 100%;
+            height: 30px;
+            border-radius:  0;
+            border-bottom: 1px solid rgb(220, 222, 222);
+            cursor: pointer;
+        box-shadow: none;
+
+        }
+        .opTab:hover{
+            color: white;
+            background-color: $brown;
+        }
+        .opTabCheck{
+            width: 100%;
+            height: 30px;
+            border-radius:  0;
+            cursor: pointer;
+        box-shadow: none;
+        }
+        // .opTabCheck:hover{
+        //     color: white;
+        //     background-color: $brown;
+        // }
+
+      
+        p {
+          margin: 0;
+          padding: 5px 10px;
+          cursor: pointer;
+      font-size: 15px;
+          &:hover {
+            background-color: #f0f0f0;
+          }
+        }
+      }
+      .modalOverlay{
+position: absolute;
+        // width: 70% !important;
+        // height: 70vh;
+        width: 400px;
+        height: 500px;
+        color: $brown;
+        top: 25%;
+        left: 40%;
+        z-index: 300;
+        background-color: rgb(224, 222, 222);
+        // opacity: 0.5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .modal{
+        opacity: 1 !important;
+            width: 400px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: right;
+            background-color: transparent;
+        box-shadow: none;
+h2{
+    margin: 10px 0;
+}
+
+            input{
+                height:45px;
+                width: 275px;
+                border-radius: 5px;
+                border: 1px $brown dashed;
+                margin: 10px 0;
+            }
+            .modalActions{
+                height: 150px;
+                box-shadow: none;
+                
+                button{
+                    height: 60px;
+                    width: 180px;
+                    border-radius: 8px;
+                    border: 0;
+                    color: white;
+                    margin-top: 20px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    font-weight: 500;
+                    &:nth-of-type(1) {
+                        background-color: green;
+                    }
+                    &:nth-of-type(2) {
+                        background-color: red;
+                    }
+                    &:nth-of-type(1):hover {
+                        background-color: rgb(3, 81, 3);
+                    }
+                    &:nth-of-type(2):hover {
+                        background-color: rgb(157, 8, 8);
+                    }
+                }
+
+            }
+        }
+      }
+      
 }
 

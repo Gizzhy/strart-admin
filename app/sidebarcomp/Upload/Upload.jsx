@@ -66,6 +66,7 @@ const Upload = () => {
         price: parseFloat(price),
         imageURL, // Image URL from Cloudinary
         category,
+        isAvailable: true,
       };
 
       // Save product data to Firestore
