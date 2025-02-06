@@ -1,0 +1,27 @@
+$brown : #4d3a2d;
+$blue: #2D404D;
+
+
+.logout{
+    padding-top: 130px;
+    p{
+        font-size: 20px;
+        font-weight: 600;
+        color: $blue;
+    }
+    button{
+        width: 200px;
+        height: 60px;
+        border-radius: 7px;
+        border: 0;
+        background-color: $brown;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: #a88065;
+    }
+}
