@@ -1,4 +1,6 @@
 $brown : #4d3a2d;
+$blue: #2D404D;
+
 
 
 .malePage{
@@ -47,12 +49,32 @@ $brown : #4d3a2d;
 
 
                     p{
+                        &:nth-of-type(1) {
                         font-size: 14px;
-                        font-weight: 500;
+                        font-weight: 600;
                         margin-bottom: 15px;
                         margin-left: 15px;
                         text-transform: uppercase;
+                        color: $blue;
+
                     }
+                    &:nth-of-type(2) {
+                        font-size: 12px;
+                        font-weight: 500;
+                        margin-bottom: 15px;
+                        margin: 0 15px 15px 15px;
+                        text-align: justify;
+                        color: $brown;
+                    }
+                    &:nth-of-type(3) {
+                        font-size: 17px;
+                        font-weight: 600;
+                        margin-bottom: 15px;
+                        margin: 0 15px 15px 15px;
+                        text-align: justify;
+                        color: $brown;
+                    }
+                }
                 }
     }
     .popup {
